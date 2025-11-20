@@ -1,105 +1,67 @@
-# EXERCISE 4: Evaluation of Prefix Expression
+# Ex4 You are given a Java program that performs matrix addition. If Matrix A has all odd numbers and Matrix B has all even numbers of the same dimension, what will be the nature (even/odd/mixed) of the resulting matrix?
+## DATE:21.08.2025
+## AIM:
+To write a java function to evaluate weather the given Matrix A has all odd numbers and Matrix B has all even numbers of the same dimension and find the nature of resultant matrrix.
 
-## DATE:
-20.02.2025
-
-##  AIM:
-To write a C function to evaluate the given **prefix expression** using a **stack** and print the output from **inside the function**.
-
----
-
-##  Algorithm:
-1. Start the program.
-2. Read the prefix expression from the user.
-3. Initialize an empty stack.
-4. Traverse the expression **from right to left**:
-   - If the character is an **operand**, push it onto the stack.
-   - If the character is an **operator**:
-     - Pop two operands from the stack.
-     - Apply the operator to them (`op1 operator op2`).
-     - Push the result back onto the stack.
-5. After the complete traversal, the final result is at the top of the stack.
-6. Display the result.
-7. End the program.
-
----
-
-##  Program:
-```c
+## Algorithm
+1.Start the program.
+2.Read the dimensions of the matrices.
+3.Read elements of Matrix A (odd numbers) and Matrix B (even numbers).
+4.Perform matrix addition and store the result in Matrix C.
+5.Check whether all elements in Matrix C are even, odd, or mixed.
+6.Display the resulting matrix and its nature.
+7.Stop the program.
+## Program:
+```
 /*
-Program to evaluate the given prefix expression
+Program to ind the nature of resultant matrrix.
 Developed by: SHAKTHI KUMAR S
-RegisterNumber: 212222110043
+RegisterNumber:212222110043
 */
+import java.util.Scanner;
 
-#include <stdio.h>
-#include <ctype.h>
-#include <math.h>
-#include <string.h>
+public class MatrixAddition {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
 
-#define SIZE 100
+        int rows = sc.nextInt();
+        int cols = sc.nextInt();
 
-int stack[SIZE];
-int top = -1;
+        int[][] A = new int[rows][cols];
+        int[][] B = new int[rows][cols];
+        int[][] result = new int[rows][cols];
 
-void push(int val) {
-    stack[++top] = val;
-}
-
-int pop() {
-    return stack[top--];
-}
-
-int evaluate(char prefix[]) {
-    int i, op1, op2, res;
-    char ch;
-
-    // Start from rightmost character
-    for(i = strlen(prefix) - 1; i >= 0; i--) {
-        ch = prefix[i];
-
-        if(isdigit(ch)) {
-            push(ch - '0');  // Convert char digit to int
-        }
-        else {
-            op1 = pop();
-            op2 = pop();
-
-            switch(ch) {
-                case '+': res = op1 + op2; break;
-                case '-': res = op1 - op2; break;
-                case '*': res = op1 * op2; break;
-                case '/': res = op1 / op2; break;
-                case '^': res = pow(op1, op2); break;
-                default:
-                    printf("Invalid operator encountered.\n");
-                    return 0;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                A[i][j] = sc.nextInt();
             }
-
-            push(res);
         }
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                B[i][j] = sc.nextInt();
+            }
+        }
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                result[i][j] = A[i][j] + B[i][j];
+            }
+        }
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                System.out.print(result[i][j] + " ");
+            }
+            System.out.println();
+        }
+
+       
     }
-
-    printf("Result of the Prefix expression is: %d\n", stack[top]);
-    return stack[top];
-}
-
-int main() {
-    char prefix[SIZE];
-
-    printf("Enter a prefix expression (e.g., +9*26): ");
-    scanf("%s", prefix);
-
-    evaluate(prefix);
-
-    return 0;
 }
 ```
 
 ## Output:
 
-![image](https://github.com/user-attachments/assets/e3ee316d-b469-48d4-ae0f-2b1492e4b167)
+<img width="422" height="624" alt="image" src="https://github.com/user-attachments/assets/34782319-f865-4fe8-a281-f3aed6852160" />
 
 
 ## Result:
-Thus, the C program to evaluate the prefix expression using stack and print the output of the given prefix expression from the stack inside the function is implemented successfully.
+Thus, the java program to evaluate weather the given Matrix A has all odd numbers and Matrix B has all even numbers of the same dimension and find the nature of resultant matrrix is implemented successfully.
