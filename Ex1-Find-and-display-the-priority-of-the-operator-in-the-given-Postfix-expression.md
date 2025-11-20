@@ -1,72 +1,53 @@
-# EXERCISE 1: Display Operator Precedence in the Infix Expression
-
-## DATE:
-14.02.2025
-
+# EX 1
+## You’re creating a health monitoring device which stores several sensor readings in an array. To determine the minimum value (e.g., lowest heartbeat), implement a recursive method.
+## DATE: 17-09-2025
 ## AIM:
-To write a C program to find and display the priority of the operators in a given **Postfix expression**.
+To write a JAVA program To determine the minimum value (e.g., lowest heartbeat), implement a recursive method.
 
----
+## Algorithm
+1. Start the program.  
+2. Read the number of elements and store them in an array.  
+3. Define a recursive function `findMin()` that compares elements to find the minimum.  
+4. Base condition: If the array has one element, return that element.  
+5. Recursive step: Compare the last element with the minimum of the rest of the array and return the smaller one.  
+6. Display the minimum value.  
+7. Stop the program.   
 
-## Algorithm:
-1. Start the program.
-2. Read the postfix expression from the user.
-3. Traverse each character in the postfix expression.
-4. If the character is an operator, determine its precedence:
-   - `^` → precedence 3 (highest)
-   - `*`, `/`, `%` → precedence 2 (medium)
-   - `+`, `-` → precedence 1 (lowest)
-5. Display each operator along with its precedence.
-6. End the program.
-
----
-
-##  Program:
-```
+## Program:
+```java
 /*
-Program to find and display the priority of the operator in the given Postfix expression
+Program To determine the minimum value (e.g., lowest heartbeat), implement a recursive method.
 Developed by: SHAKTHI KUMAR S
-RegisterNumber: 212222110043
+Register Number: 212222110043
 */
 
-#include <stdio.h>
-#include <ctype.h>
+import java.util.*;
 
-// Function to return precedence of an operator
-int precedence(char op) {
-    switch(op) {
-        case '^': return 3;
-        case '*':
-        case '/':
-        case '%': return 2;
-        case '+':
-        case '-': return 1;
-        default: return 0; // Not an operator
-    }
-}
-
-int main() {
-    char postfix[100];
-    int i;
-
-    printf("Enter a postfix expression: ");
-    scanf("%s", postfix);
-
-    printf("\nOperator Precedence:\n");
-    for(i = 0; postfix[i] != '\0'; i++) {
-        if(postfix[i] == '+' || postfix[i] == '-' || postfix[i] == '*' || 
-           postfix[i] == '/' || postfix[i] == '%' || postfix[i] == '^') {
-            printf("Operator '%c' has precedence %d\n", postfix[i], precedence(postfix[i]));
+public class Main {
+    static int getMin(int[] arr, int i, int n) {
+        if (i == n - 1) {
+            return arr[i];
         }
+        int minRest = getMin(arr, i + 1, n);
+        return Math.min(arr[i], minRest);
     }
 
-    return 0;
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        System.out.println(getMin(arr, 0, n));
+    }
 }
 ```
 
-## OUTPUT :-
-![image](https://github.com/user-attachments/assets/8f988df7-6448-4f23-b8f4-8fdef5ff91c8)
+## Output:
+<img width="405" height="177" alt="image" src="https://github.com/user-attachments/assets/22087b27-b119-42b0-90cc-cd6e365863d6" />
+
 
 
 ## Result:
-Thus, the C program to find and display the priority of the operator in the given Postfix expression is implemented successfully and the operator precedence is displayed accurately.
+Thus the JAVA program to find the minimum value (e.g., lowest heartbeat), implement a recursive method has implemented successfully.
