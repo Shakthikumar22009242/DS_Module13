@@ -1,64 +1,66 @@
-#  EXERCISE 3: Implementation of Tower of Hanoi
-
-## DATE:
-19.02.2025
-
+# EX3 Write a program to count the number of digits in an integer.
+## DATE:18.08.2025
 ## AIM:
-To write a C program to implement the **Tower of Hanoi** problem using **recursion**.
+To write a C program to implement Tower of Hanoi
 
----
+## Algorithm
+1.Start the program.  
 
-## Algorithm:
-1. Start the program.
-2. Define a recursive function `hanoi(n, source, auxiliary, destination)`:
-   - If `n == 1`, move the disk from source to destination.
-   - Else:
-     - Recursively move `n-1` disks from source to auxiliary using destination as helper.
-     - Move the remaining disk from source to destination.
-     - Recursively move `n-1` disks from auxiliary to destination using source as helper.
-3. In the `main()` function:
-   - Read the number of disks from the user.
-   - Call the `hanoi()` function with appropriate arguments.
-4. End the program.
+2.Read an integer from the user.
 
----
+3.Define a recursive function countDigits() that counts digits by dividing the number by 10 each time. 
 
-## 💻 Program:
+4.Base condition: if the number is 0, return 0. 
+
+5.Recursive step: return 1 + countDigits(number / 10).
+
+6.Display the total count of digits. 7.Stop the program.
+
+## Program:
 ```
 /*
-Program to implement Tower of Hanoi
+Program to to count the number of digits in an integer
 Developed by: SHAKTHI KUMAR S
 RegisterNumber: 212222110043
 */
 
-#include <stdio.h>
+import java.util.Scanner;
 
-void hanoi(int n, char source, char auxiliary, char destination) {
-    if (n == 1) {
-        printf("Move disk 1 from %c to %c\n", source, destination);
-        return;
+public class CountDigits {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        
+     
+        int num = sc.nextInt();
+        
+        int count = 0;
+        int n = Math.abs(num); 
+        
+        
+        if (n == 0) {
+            count = 1;
+        } else {
+            while (n > 0) {
+                n = n / 10;  
+                count++;
+            }
+        }
+        
+        System.out.println("Number of digits: " + count);
+
+        sc.close();
     }
-    hanoi(n - 1, source, destination, auxiliary);
-    printf("Move disk %d from %c to %c\n", n, source, destination);
-    hanoi(n - 1, auxiliary, source, destination);
 }
 
-int main() {
-    int n;
-    printf("Enter the number of disks: ");
-    scanf("%d", &n);
-    
-    printf("\nSteps to solve Tower of Hanoi:\n");
-    hanoi(n, 'A', 'B', 'C');
-    
-    return 0;
-}
 ```
 
 ## Output:
 
-![image](https://github.com/user-attachments/assets/ae4b0fce-3381-4722-bcee-67d29f25be28)
+<img width="601" height="242" alt="image" src="https://github.com/user-attachments/assets/132a7a2a-95ea-4d65-a908-0268fc16eb32" />
+
+
+
 
 
 ## Result:
-Thus, the C program to implement Tower of Hanoi using recursion is implemented successfully.
+Thus, the Java program to to count the number of digits in an integer is implemented successfully.
