@@ -1,26 +1,32 @@
-# EX 1
-## You’re creating a health monitoring device which stores several sensor readings in an array. To determine the minimum value (e.g., lowest heartbeat), implement a recursive method.
-## DATE: 11-08-2025
+# EX 1 You’re creating a health monitoring device which stores several sensor readings in an array. To determine the minimum value (e.g., lowest heartbeat), implement a recursive method.
+## DATE: 11.08.2025
 ## AIM:
 To write a JAVA program To determine the minimum value (e.g., lowest heartbeat), implement a recursive method.
 
 ## Algorithm
-1. Start the program.  
-2. Read the number of elements and store them in an array.  
-3. Define a recursive function `findMin()` that compares elements to find the minimum.  
-4. Base condition: If the array has one element, return that element.  
-5. Recursive step: Compare the last element with the minimum of the rest of the array and return the smaller one.  
-6. Display the minimum value.  
-7. Stop the program.   
+1. Start
+
+2.Read the number of elements (e.g., number of heartbeat readings).
+
+3.Store all readings in an array.
+
+4.Call a recursive function findMin(arr, index)
+
+If index == arr.length - 1, return arr[index]
+
+Else return min(arr[index], findMin(arr, index + 1))
+
+5.Print the minimum value returned by the recursive function.
+
+6.End 
 
 ## Program:
-```java
+```
 /*
 Program To determine the minimum value (e.g., lowest heartbeat), implement a recursive method.
 Developed by: SHAKTHI KUMAR S
-Register Number: 212222110043
+RegisterNumber:212222110043
 */
-
 import java.util.*;
 
 public class Main {
@@ -28,7 +34,10 @@ public class Main {
         if (i == n - 1) {
             return arr[i];
         }
+
+    
         int minRest = getMin(arr, i + 1, n);
+       
         return Math.min(arr[i], minRest);
     }
 
@@ -42,12 +51,13 @@ public class Main {
         System.out.println(getMin(arr, 0, n));
     }
 }
+
 ```
 
 ## Output:
-<img width="405" height="177" alt="image" src="https://github.com/user-attachments/assets/22087b27-b119-42b0-90cc-cd6e365863d6" />
+<img width="649" height="254" alt="image" src="https://github.com/user-attachments/assets/6f3bd15f-b306-4db4-a188-983042447943" />
 
 
 
 ## Result:
-Thus the JAVA program to find the minimum value (e.g., lowest heartbeat), implement a recursive method has implemented successfully.
+Thus the JAVA prograM ti find the minimum value (e.g., lowest heartbeat), implement a recursive method has implemented successfully
